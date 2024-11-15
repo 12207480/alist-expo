@@ -1,0 +1,6 @@
+[submodule "alist"]
+	path = alist
+	url = https://github.com/gendago/alist-ios.git
+[submodule "alist-web"]
+	path = alist-web
+	url = https://github.com/gendago/alist-web.git
