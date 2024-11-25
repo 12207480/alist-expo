@@ -190,6 +190,11 @@ class Alist: RCTEventEmitter {
                             rejecter reject: @escaping RCTPromiseRejectBlock) {
     AlistlibSetAutoStopHours(Int(value.intValue))
   }
+  
+  @objc func getVersion(_ resolve: @escaping RCTPromiseResolveBlock,
+                            rejecter reject: @escaping RCTPromiseRejectBlock) {
+    resolve(AlistlibGetVersion())
+  }
 
   // React Native桥接需要的因素
   @objc override static func requiresMainQueueSetup() -> Bool {

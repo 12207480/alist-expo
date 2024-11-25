@@ -6,6 +6,9 @@ on:
       release_name:
         description: 'Enter the name of the release'
         required: true
+      alist_version:
+        description: 'Enter the version of the AList'
+        required: true
 
 permissions:
   contents: write
@@ -35,7 +38,7 @@ jobs:
           cd alist && \
           go install golang.org/x/mobile/cmd/gomobile@latest && \
           gomobile init && \
-          gomobile bind -target ios -bundleid com.gendago.alist -o ../ios/alist/Alistlib.xcframework -ldflags "-s -w" github.com/alist-org/alist/v3/alistlib
+          gomobile bind -target ios -bundleid com.gendago.alist -o ../ios/alist/Alistlib.xcframework -ldflags "-s -w -X 'github.com/alist-org/alist/v3/internal/conf.Version=${{ github.event.inputs.alist_version }}'" github.com/alist-org/alist/v3/alistlib
 
       - name: modify Podfile
         run: sed -i '' 's/alist/alist-without-icloud/g' ios/Podfile

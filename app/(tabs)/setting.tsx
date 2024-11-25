@@ -21,6 +21,7 @@ const { AppInfo, NotificationManager, Alist } = NativeModules;
 export default function Setting() {
   const [modalVisible, setModalVisible] = useState(false);
   const [version, setVersion] = useState('1.0')
+  const [alistVersion, setAlistVersion] = useState('dev')
   const backgroundMode = useAppSelector(state => state.setting.backgroundMode)
   const autoRun = useAppSelector(state => state.setting.autoRun)
   const iCloudSync = useAppSelector(state => state.setting.iCloudSync)
@@ -38,6 +39,15 @@ export default function Setting() {
     try {
       const version = await AppInfo.getAppVersion();
       setVersion(version)
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
+  const getAlistVersion = useCallback(async () => {
+    try {
+      const version = await Alist.getVersion();
+      setAlistVersion(version)
     } catch (error) {
       console.error(error);
     }
@@ -76,6 +86,10 @@ export default function Setting() {
   useEffect(() => {
     getAppVersion()
   }, [getAppVersion]);
+
+  useEffect(() => {
+    getAlistVersion()
+  }, [getAlistVersion]);
 
   useEffect(() => {
     NativeModules?.CloudKitManager?.getUserRecordID?.()
@@ -182,7 +196,7 @@ export default function Setting() {
           </View>
           <View style={[styles.cardItem]}>
             <Text style={styles.itemTitle}>AList版本</Text>
-            <Text>3.39.1</Text>
+            <Text>{alistVersion}</Text>
           </View>
         </ColorSchemeCard>
         <Text style={[styles.cardTitle, styles.cardMarginTop]}>关于</Text>
