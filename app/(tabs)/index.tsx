@@ -21,7 +21,7 @@ import ColorSchemeCard from "@/components/ColorSchemeCard";
 import axios from "axios/index";
 import RNFS from "react-native-fs";
 
-const {Alist, NotificationManager} = NativeModules;
+const {Alist, NotificationManager, AppInfo} = NativeModules;
 const DEFAULT_PASSWORD = 'admin'
 
 export default function HomeScreen() {
@@ -31,7 +31,7 @@ export default function HomeScreen() {
   const dispatch = useAppDispatch()
   const [adminPwd, setAdminPwd] = useState('')
   const [adminUsername, setAdminUsername] = useState('')
-  const [ip, setIP] = useState(null)
+  const [ip, setIP] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const start = async () => {
     if (isRunning) return
@@ -151,9 +151,23 @@ export default function HomeScreen() {
   }, [isRunning, updateAdminInfo]));
 
   useEffect(() => {
-    return addEventListener(state => {
-      // @ts-ignore
-      setIP(state.details?.ipAddress)
+    return addEventListener((state) => {
+      AppInfo.getWiFiAddress()
+        .then((address: string) => {
+          if (state.type === 'wifi') {
+            setIP(address)
+          } else {
+            setIP(null)
+          }
+        })
+        .catch((e: any) => {
+          console.error(e)
+          if (state.type === 'wifi') {
+            setIP('0.0.0.0')
+          } else {
+            setIP(null)
+          }
+        })
     });
   }, []);
 
