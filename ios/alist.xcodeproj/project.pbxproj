@@ -63,6 +63,8 @@
 		2BBEDA5A2BF7A40D00A07CF1 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBEDA582BF7A40D00A07CF1 /* libresolv.tbd */; };
 		2BBEDA5B2BF7A40D00A07CF1 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBEDA592BF7A40D00A07CF1 /* libresolv.9.tbd */; };
 		2BBEDA5D2BF7A41800A07CF1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBEDA5C2BF7A41800A07CF1 /* IOKit.framework */; };
+		2BED6E8E2D0751E30072CD1C /* alist copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BED6E8D2D0751E30072CD1C /* alist copy-Info.plist */; };
+		2BED6E8F2D0751E30072CD1C /* alist copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BED6E8D2D0751E30072CD1C /* alist copy-Info.plist */; };
 		3DA8A76CB5B739479397D401 /* Pods_alist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31712EB65DBA636FE2174A5 /* Pods_alist.framework */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		5D90CC3DA36D41CA86945CB5 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0C0BAEF2E43AF98E3347E /* noop-file.swift */; };
@@ -97,10 +99,10 @@
 		2B82A2602BF5EFA500E4F0F5 /* Alistlib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alistlib.xcframework; path = alist/Alistlib.xcframework; sourceTree = "<group>"; };
 		2B8F03462C5D2F030000F134 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		2B9EECEB2CE1F160002B43D5 /* alist-without-icloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alist-without-icloud.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B9EECEC2CE1F160002B43D5 /* alist copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "alist copy-Info.plist"; path = "/Users/bytedance/code/alist-expo/ios/alist copy-Info.plist"; sourceTree = "<absolute>"; };
 		2BBEDA582BF7A40D00A07CF1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		2BBEDA592BF7A40D00A07CF1 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		2BBEDA5C2BF7A41800A07CF1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		2BED6E8D2D0751E30072CD1C /* alist copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "alist copy-Info.plist"; sourceTree = "<group>"; };
 		3BC7C7ED899558EC81DBA0F5 /* Pods-alist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alist.release.xcconfig"; path = "Target Support Files/Pods-alist/Pods-alist.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = alist/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		13B07FAE1A68108700A75B9A /* alist */ = {
 			isa = PBXGroup;
 			children = (
+				2BED6E8D2D0751E30072CD1C /* alist copy-Info.plist */,
 				2B82A2602BF5EFA500E4F0F5 /* Alistlib.xcframework */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -258,7 +261,6 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
-				2B9EECEC2CE1F160002B43D5 /* alist copy-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -392,6 +394,7 @@
 			files = (
 				2B79A6FD2C1C2A9F00DE3BD6 /* jm.mp3 in Resources */,
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
+				2BED6E8E2D0751E30072CD1C /* alist copy-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2B79A6F62C1C2A9F00DE3BD6 /* audio.png in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
@@ -404,6 +407,7 @@
 			files = (
 				2B9EECDF2CE1F160002B43D5 /* jm.mp3 in Resources */,
 				2B9EECE02CE1F160002B43D5 /* Expo.plist in Resources */,
+				2BED6E8F2D0751E30072CD1C /* alist copy-Info.plist in Resources */,
 				2B9EECE12CE1F160002B43D5 /* Images.xcassets in Resources */,
 				2B9EECE22CE1F160002B43D5 /* audio.png in Resources */,
 				2B9EECE32CE1F160002B43D5 /* SplashScreen.storyboard in Resources */,
@@ -753,7 +757,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.17;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -794,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.17;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -832,7 +836,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.17;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -871,7 +875,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.16;
+				MARKETING_VERSION = 1.17;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -958,7 +962,11 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -1027,7 +1035,11 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
