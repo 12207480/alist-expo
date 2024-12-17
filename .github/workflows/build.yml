@@ -5,7 +5,7 @@ on:
     inputs:
       release_name:
         description: 'Enter the name of the release'
-        required: true
+        required: false
       alist_version:
         description: 'Enter the version of the AList'
         required: true
@@ -63,10 +63,18 @@ jobs:
           cp -r ./unsigned.xcarchive/Products/Applications ./Payload && \
           zip -r AListServer.ipa ./Payload/
 
-      - name: Release
+      - name: Upload to Release
+        if: ${{ github.event.inputs.release_name }}
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: ${{ github.event.inputs.release_name }}
           prerelease: false
           files: AListServer.ipa
+
+      - name: Upload to Artifacts
+        if: ${{ !github.event.inputs.release_name }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: AListServer
+          path: AListServer.ipa
