@@ -174,7 +174,10 @@ export default function Setting() {
           {userRecordId ? (
               <View style={[styles.cardItem, styles.cardItemLarge]}>
                   <View>
-                      <Text style={styles.itemTitle}>iCloud同步</Text>
+                      <View style={{flexDirection: 'row'}}>
+                        <Text style={styles.itemTitle}>iCloud同步</Text>
+                        {iCloudSync && <Ionicons name={'sync'} size={16} style={{marginLeft: 4}} onPress={() => iCloudSwitchChange(true)}/>}
+                      </View>
                       <Text style={styles.itemDescription}>{userRecordId}</Text>
                   </View>
                   {userRecordId ? iCloudBackupLoading ?  <ActivityIndicator style={{marginRight: 16}}/> : (
