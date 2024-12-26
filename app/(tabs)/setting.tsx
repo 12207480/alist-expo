@@ -176,7 +176,7 @@ export default function Setting() {
                   <View>
                       <View style={{flexDirection: 'row'}}>
                         <Text style={styles.itemTitle}>iCloud同步</Text>
-                        {iCloudSync && <Ionicons name={'sync'} size={16} style={{marginLeft: 4}} onPress={() => iCloudSwitchChange(true)}/>}
+                        {iCloudSync && <Ionicons name={'sync'} size={16} style={{marginLeft: 4}} onPress={() => iCloudSwitchChange(true)} color={'#D1D1D6'}/>}
                       </View>
                       <Text style={styles.itemDescription}>{userRecordId}</Text>
                   </View>
