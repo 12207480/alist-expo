@@ -91,34 +91,8 @@ export default function HomeScreen() {
     })
   }, [])
 
-  const ensureConfigDirectory = useCallback(async () => {
-    /*
-    背景：
-    1. ios覆盖安装应用时，会创建一个新的Document目录，同时会把旧文件拷贝过去
-    2. config文件中存储的日志文件、临时目录等路径都是绝对路径
-
-    问题：由于Document目录已更新，但是config文件中存储的文件路径没有更新，服务启动后仍向旧的Document目录读写文件，会导致读写无权限
-
-    解法：这里对config文件中存储的文件路径进行处理，替换为新的Document目录
-     */
-    try {
-      const configPath = RNFS.DocumentDirectoryPath + '/config.json'
-      if (!await RNFS.exists(configPath)) return
-      const configData = await RNFS.readFile(configPath)
-      if (configData.includes(RNFS.DocumentDirectoryPath)) return
-      let patternString = RNFS.DocumentDirectoryPath.replace(/\/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\//, '/[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/')
-      const regexPattern = new RegExp(patternString, 'g');
-      const newConfigData = configData.replace(regexPattern, RNFS.DocumentDirectoryPath)
-      await RNFS.writeFile(RNFS.DocumentDirectoryPath + `/config.json`, newConfigData)
-      console.log('已更新配置文件')
-    } catch (e) {
-      console.error(e)
-    }
-  }, [])
-
   const init = useCallback( async () => {
     try {
-      await ensureConfigDirectory()
       await Alist.init()
       try {
         // iCloud同步 失败不阻塞主功能
@@ -142,7 +116,7 @@ export default function HomeScreen() {
         position: Toast.positions.CENTER
       })
     }
-  }, [autoRun, ensureConfigDirectory, start, iCloudSync])
+  }, [autoRun, start, iCloudSync])
 
   useFocusEffect(React.useCallback(() => {
     if (isRunning) {
